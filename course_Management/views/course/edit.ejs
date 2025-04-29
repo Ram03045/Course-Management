@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Course</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Course</h1>
+        <form action="/courses/<%= course._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <p><strong>Course Name:</strong> <%= course.courseName %> (Cannot be changed)</p>
+
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" value="<%= course.price %>" required>
+
+            <label for="image">Course Image:</label>
+            <input type="file" name="image" id="image">
+
+            <label for="duration">Duration:</label>
+            <input type="text" name="duration" id="duration" value="<%= course.duration %>" required>
+
+            <label for="courseStartDate">Start Date:</label>
+            <input type="date" name="courseStartDate" id="courseStartDate" value="<%= course.courseStartDate.toISOString().split('T')[0] %>" required>
+
+            <button type="submit" class="submit-btn">Update Course</button>
+        </form>
+    </div>
+</body>
+</html>

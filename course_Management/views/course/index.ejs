@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>All Courses</h1>
+        <a href="/courses/new" class="add-course-btn">Add New Course</a>
+        <ul>
+          <% if (courses.length > 0) { %>
+            <% courses.forEach(function(course) { %>
+              <li>
+                <a href="/courses/<%= course._id %>"><%= course.courseName %></a>
+              </li>
+            <% }); %>
+          <% } else { %>
+            <p>No courses available.</p>
+          <% } %>
+        </ul>
+    </div>
+</body>
+</html>
